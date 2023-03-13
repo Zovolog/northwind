@@ -12,19 +12,19 @@
 .main-page-content-welcome {
   font-weight: 400;
   margin-top: 50px;
+  font-size: 1.5rem;
 }
 .main-page-content-container {
   display: flex;
   align-items: center;
 }
 .main-page-content-welcome-under {
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   color: #b7b9c3;
 }
 .main-page-content-text {
   font-weight: 400;
-  font-size: 1.3rem;
-  margin-top: 20px;
+  margin-top: 1rem;
   line-height: 2rem;
 }
 .main-logo {

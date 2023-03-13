@@ -2,7 +2,7 @@
 .navigation-column {
   display: flex;
   flex-direction: column;
-  width: 20rem;
+  width: 15rem;
   height: 100vh;
 }
 .navigation-block {
@@ -18,14 +18,12 @@
   background-color: #111827;
   height: 4.5rem;
   padding-left: 10px;
-  font-size: 20px;
 }
 .navigation-block-list-header {
   display: flex;
   align-items: center;
   font-weight: 400;
   color: #9ca3af;
-  font-size: 16px;
   height: 3rem;
   width: 100%;
 }
@@ -34,7 +32,6 @@
   align-items: center;
   height: 3rem;
   width: 100%;
-  font-size: 21px;
   color: #d1d5db;
   font-weight: 400;
   cursor: pointer;

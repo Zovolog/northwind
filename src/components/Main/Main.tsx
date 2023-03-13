@@ -4,9 +4,9 @@ export const Main: React.FC = () => {
   return (
     <div className="main-page">
       <div className="main-page-content">
-        <h1 className="main-page-content-welcome">
+        <p className="main-page-content-welcome">
           Welcome to Northwind Traders
-        </h1>
+        </p>
         <p className="main-page-content-welcome-under">
           Running on Cloudflare's D1
         </p>
