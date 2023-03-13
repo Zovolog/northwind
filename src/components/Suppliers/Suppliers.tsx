@@ -8,7 +8,7 @@ export const Suppliers: React.FC = () => {
       .then(function (response) {
         console.log(response.data);
         let info = response.data.suppliers.data;
-        getData(info)
+        getData(info);
         console.log(response.data.suppliers.data[0].companyName);
       })
       .catch(function (error) {});
@@ -30,23 +30,33 @@ export const Suppliers: React.FC = () => {
               <thead>
                 <tr>
                   <th></th>
-                  <th>Company</th>
-                  <th>Contact</th>
-                  <th>Title</th>
-                  <th>City</th>
-                  <th>Country</th>
+                  <th style={{ fontWeight: 700 }}>Company</th>
+                  <th style={{ fontWeight: 700 }}>Contact</th>
+                  <th style={{ fontWeight: 700 }}>Title</th>
+                  <th style={{ fontWeight: 700 }}>City</th>
+                  <th style={{ fontWeight: 700 }}>Country</th>
                 </tr>
               </thead>
               <tbody>
                 {data.map((user: any) => (
-              <tr>
-            <th>{user.companyName}</th>
-            <th>{user.contactName}</th>
-            <th>{user.contactTitle}</th>
-            <th>{user.city}</th>
-            <th>{user.country}</th>
-          </tr>))}
-        </tbody>
+                  <tr
+                    key={user.supplierID}
+                    className={user.supplierID % 2 != 0 ? "dark-elem" : ""}
+                  >
+                    <th>
+                      <img
+                        src={`https://api.dicebear.com/5.x/initials/svg?seed=${user.contactName}`}
+                        className="name-icons"
+                      />
+                    </th>
+                    <th>{user.companyName}</th>
+                    <th>{user.contactName}</th>
+                    <th>{user.contactTitle}</th>
+                    <th>{user.city}</th>
+                    <th>{user.country}</th>
+                  </tr>
+                ))}
+              </tbody>
             </table>
           </div>
         </div>

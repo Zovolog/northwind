@@ -1,9 +1,9 @@
-
 .navigation-column {
-  display: flex;
-  flex-direction: column;
   width: 15rem;
   height: 100vh;
+  position: sticky;
+  top: 0;
+  z-index: 40;
 }
 .navigation-block {
   display: flex;

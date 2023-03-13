@@ -1,0 +1,61 @@
+.info-name-search {
+  font-weight: 600;
+  font-size: 1.3em;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+.checkbox-wrapper{
+  display: flex;
+}
+.whole-radio-button{
+  display: flex;
+  align-items: center;
+}
+.checkbox-wrapper input {
+  position: absolute;
+  opacity: 0;
+  сursor: pointer;
+}
+
+.checkbox-wrapper label {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 17px;
+  user-select: none;
+}
+
+.checkbox-wrapper span {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #c9c9c9;
+  border-radius: 50%;
+}
+
+.checkbox-wrapper label input:checked ~ span {
+  background-color: #3b82f6;
+}
+
+.checkbox-wrapper span:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.checkbox-wrapper label input:checked ~ span:after {
+  display: block;
+}
+
+.checkbox-wrapper label span:after {
+  top: 7px;
+  left: 7px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: white;
+}
