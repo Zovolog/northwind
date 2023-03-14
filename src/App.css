@@ -10,6 +10,9 @@
   background-color: #f9fafb;
   margin: none;
 }
+.info-wrapper {
+  padding: 1.5rem;
+}
 .info-container {
   width: 96%;
   margin: 0 auto;
