@@ -1,5 +1,6 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 export const Suppliers: React.FC = () => {
   const [data, getData] = useState([]);
   useEffect(() => {
@@ -49,7 +50,11 @@ export const Suppliers: React.FC = () => {
                         className="name-icons"
                       />
                     </th>
-                    <th>{user.companyName}</th>
+                    <th>
+                      <Link to={`/suppliers/${user.supplierID}`} className='lin'>
+                        {user.companyName}
+                      </Link>
+                    </th>
                     <th>{user.contactName}</th>
                     <th>{user.contactTitle}</th>
                     <th>{user.city}</th>
