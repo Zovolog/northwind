@@ -51,7 +51,7 @@ table {
   width: 100%;
 }
 .link {
-  color: rgb(0, 132, 255);
+  color: rgb(0, 104, 201);
 }
 .info-body-header {
   font-weight: 600 !important;
@@ -69,9 +69,11 @@ table {
 .dark-elem {
   background-color: #f9fafb;
 }
-.light-elem {
-  background-color: #f9fafb;
+.light-elem:hover,
+.dark-elem:hover {
+  background-color: #f3f4f6;
 }
+
 .info-body-header {
   margin-top: 1rem;
   margin-bottom: 1rem;
@@ -102,4 +104,17 @@ table {
 }
 .bt-return:hover {
   background-color: #dc2626;
+}
+.info-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1rem;
+  width: 100%;
+  margin: 0 auto;
+  height: 1rem;
+  padding-top: 1.5rem;
+}
+.whatPage {
+  width: 7rem;
 }

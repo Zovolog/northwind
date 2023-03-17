@@ -2,7 +2,7 @@ import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 
-interface user {
+interface supplier {
   companyName: string;
   contactName: string;
   contactTitle: string;
@@ -15,7 +15,7 @@ interface user {
 }
 export const Supplier: React.FC = () => {
   const { userSupplierID } = useParams();
-  const [data, getData] = useState<user | null>(null);
+  const [data, getData] = useState<supplier | null>(null);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -31,10 +31,6 @@ export const Supplier: React.FC = () => {
   return (
     <div>
       <div className="info-wrapper">
-        <link
-          rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,1,0"
-        />
         <div className="info-container">
           <div className="info-header">
             <p className="info-name">

@@ -4,10 +4,10 @@
   margin-top: 1.5rem;
   margin-bottom: 1.5rem;
 }
-.checkbox-wrapper{
+.checkbox-wrapper {
   display: flex;
 }
-.whole-radio-button{
+.whole-radio-button {
   display: flex;
   align-items: center;
 }
@@ -58,4 +58,33 @@
   height: 12px;
   border-radius: 50%;
   background: white;
+}
+.search-block {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.search-icon {
+  position: absolute;
+  left: 0;
+  padding-left: 0.2rem;
+}
+.input-search {
+  padding-left: 2.5rem;
+  width: 50%;
+  height: 2rem;
+  border: 1px solid #9ca3af;
+  outline: none;
+  box-sizing: border-box;
+}
+.input-search:focus {
+  border: 2px solid #9dc0fa;
+}
+.input-search::placeholder {
+  color: grey;
+}
+.info {
+  color: #9ca3af;
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
 }

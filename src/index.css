@@ -7,7 +7,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background-color: #f9fafb;
   font-size: 1rem;
-  
 }
 a {
   text-decoration: none;
@@ -22,4 +21,10 @@ ul {
   margin-left: 0;
   padding-left: 0;
   margin-top: 0;
+}
+.css-1oqqzyl-MuiContainer-root {
+  max-width: 100% !important;
+}
+.MuiPagination-outlined {
+  background-color: none;
 }
