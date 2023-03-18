@@ -12,6 +12,7 @@ import { Product } from "./components/Product/Product";
 import { Employees } from "./components/Employees/Employees";
 import { Employee } from "./components/Employee/Employee";
 import { Customers } from "./components/Customers/Customers";
+import { Customer } from "./components/Customer/Customer";
 function App() {
   return (
     <div className="App">
@@ -32,7 +33,7 @@ function App() {
             <Route path="/employees" element={<Employees />} />
             <Route path="/employees/:employeeID" element={<Employee />} />
             <Route path="/customers" element={<Customers />} />
-            <Route path="/customers/:customerID" element={<Customers />} />
+            <Route path="/customers/:customerID" element={<Customer />} />
             <Route path="/search" element={<Search />} />
           </Routes>
         </div>

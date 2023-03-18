@@ -7,6 +7,7 @@ export const Search: React.FC = () => {
   const [option, getOption] = useState("products");
   const [key, getKey] = useState("");
   const [data, getData] = useState([]);
+  const [number, getNumber] = useState(1);
   function request(item: string, key: string) {
     axios
       .get(`https://northwind.onrender.com/search-${item}/${key}`)
@@ -19,11 +20,13 @@ export const Search: React.FC = () => {
         console.log(data);
       });
   }
+
   useEffect(() => {
     if (key) {
       request(option, key);
     }
   }, [option]);
+
   return (
     <div className="info-wrapper">
       <div className="info-container">
@@ -53,7 +56,7 @@ export const Search: React.FC = () => {
             <input
               type="radio"
               className="modern-radio"
-              value="Products"
+              value="products"
               name="a"
               defaultChecked
               onChange={(e) => getOption(e.target.value)}
@@ -81,20 +84,34 @@ export const Search: React.FC = () => {
               {option === "products" ? (
                 <div>
                   {" "}
-                  {data.map((product: any) => (
+                  {data.map((product: any, index) => (
                     <div key={product.productID}>
                       <Link to={`/products/${product.productID}`}>
                         <p className="link">{product.productName}</p>
                       </Link>
                       <p className="info">
-                        #{1}, Quantity Per Unit:{product.quantityPerUnit},
-                        Price:{product.unitPrice}, Stock:{product.unitsInStock}
+                        #{index + 1}, Quantity Per Unit:
+                        {product.quantityPerUnit}, Price:{product.unitPrice},
+                        Stock:{product.unitsInStock}
                       </p>
                     </div>
                   ))}
                 </div>
               ) : (
-                <p>custom</p>
+                <div>
+                  {" "}
+                  {data.map((customer: any, index) => (
+                    <div key={customer.customerID}>
+                      <Link to={`/products/${customer.customerID}`}>
+                        <p className="link">{customer.companyName}</p>
+                      </Link>
+                      <p className="info">
+                        #{index + 1}, Contact: {customer.contactName}, Title:{" "}
+                        {customer.contactTitle}, Phone: {customer.phone}
+                      </p>
+                    </div>
+                  ))}
+                </div>
               )}
             </div>
           )}

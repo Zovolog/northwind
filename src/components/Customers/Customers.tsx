@@ -23,7 +23,7 @@ export const Customers: React.FC = (props) => {
     <div>
       <div className="info-wrapper">
         {data.length === 0 ? (
-          <p>Loadins employees...</p>
+          <p>Loadins customers...</p>
         ) : (
           <div className="info-container">
             <div className="info-header">
@@ -59,7 +59,7 @@ export const Customers: React.FC = (props) => {
 
                       <th>
                         <Link
-                          to={`/employees/${customer.customerID}`}
+                          to={`/customers/${customer.customerID}`}
                           className="link"
                         >
                           {customer.companyName}
