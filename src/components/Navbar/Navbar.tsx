@@ -45,12 +45,14 @@ export const Navbar: React.FC = () => {
               Products
             </li>
           </Link>
-          <li className="navigation-block-list-link">
-            <span className="material-symbols-outlined icon">
-              shopping_cart
-            </span>
-            Orders
-          </li>
+          <Link to={"/orders"}>
+            <li className="navigation-block-list-link">
+              <span className="material-symbols-outlined icon">
+                shopping_cart
+              </span>
+              Orders
+            </li>
+          </Link>
           <Link to={"/employees"}>
             <li className="navigation-block-list-link">
               <span className="material-symbols-outlined icon">badge</span>

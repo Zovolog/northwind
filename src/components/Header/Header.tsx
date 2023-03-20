@@ -24,14 +24,8 @@ export const Header: React.FC = () => {
   };
 
   return (
-    <div className="App">
-      
+    <div>
       <header>
-        <link
-          rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
-        />
-
         <p className="clock">{date.toLocaleTimeString()}</p>
         <div className="dropdown-links">
           <div className="dropdown-list-header" onClick={openList} ref={button}>

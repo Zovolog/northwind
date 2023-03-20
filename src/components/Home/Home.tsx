@@ -1,6 +1,6 @@
-import "./Main.css";
+import "./Home.css";
 import logo from "./public.png";
-export const Main: React.FC = () => {
+export const Home: React.FC = () => {
   return (
     <div className="main-page">
       <div className="main-page-content">

@@ -24,7 +24,7 @@ export const Suppliers: React.FC = (props) => {
     <div>
       <div className="info-wrapper">
         {data.length === 0 ? (
-          <p>Loadins suppliers...</p>
+          <p>Loading suppliers...</p>
         ) : (
           <div className="info-container">
             <div className="info-header">

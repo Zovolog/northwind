@@ -23,11 +23,11 @@ export const Employees: React.FC = (props) => {
     <div>
       <div className="info-wrapper">
         {data.length === 0 ? (
-          <p>Loadins employees...</p>
+          <p>Loading employees...</p>
         ) : (
           <div className="info-container">
             <div className="info-header">
-              <p className="info-name">Products</p>
+              <p className="info-name">Employees</p>
               <span className="material-symbols-outlined">redo</span>
             </div>
             <div className="info-body">
@@ -47,7 +47,9 @@ export const Employees: React.FC = (props) => {
                     <tr
                       key={employee.employeeID}
                       className={
-                        employee.productID % 2 != 0 ? "dark-elem" : "light-elem"
+                        employee.employeeID % 2 != 0
+                          ? "dark-elem"
+                          : "light-elem"
                       }
                     >
                       <th>
@@ -67,7 +69,7 @@ export const Employees: React.FC = (props) => {
                           {employee.firstName + " " + employee.lastName}
                         </Link>
                       </th>
-                      <th>${employee.title}</th>
+                      <th>{employee.title}</th>
                       <th>{employee.city}</th>
                       <th>{employee.homePhone}</th>
                       <th>{employee.country}</th>

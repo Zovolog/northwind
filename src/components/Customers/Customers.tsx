@@ -27,7 +27,7 @@ export const Customers: React.FC = (props) => {
         ) : (
           <div className="info-container">
             <div className="info-header">
-              <p className="info-name">Products</p>
+              <p className="info-name">Customers</p>
               <span className="material-symbols-outlined">redo</span>
             </div>
             <div className="info-body">
@@ -43,11 +43,11 @@ export const Customers: React.FC = (props) => {
                   </tr>
                 </thead>
                 <tbody>
-                  {data.map((customer: any) => (
+                  {data.map((customer: any, index) => (
                     <tr
                       key={customer.customerID}
                       className={
-                        customer.productID % 2 != 0 ? "dark-elem" : "light-elem"
+                        (index + 1) % 2 != 0 ? "dark-elem" : "light-elem"
                       }
                     >
                       <th>
