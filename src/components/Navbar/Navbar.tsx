@@ -1,9 +1,14 @@
+
+import { ThemeContext } from "@emotion/react";
+import { useContext, useRef } from "react";
 import { Link } from "react-router-dom";
 import "./Navbar.css";
 
 export const Navbar: React.FC = () => {
+  const ref = useRef(null);
+  const theme = useContext(ThemeContext);
   return (
-    <div className="navigation-column">
+    <div className="navigation-column" ref={ref}>
       <div className="navigation-logo">
         <p>
           <span style={{ fontWeight: 900 }}>Northwind</span> Traders
@@ -12,7 +17,7 @@ export const Navbar: React.FC = () => {
       <div className="navigation-block">
         <ul className="navigation-block-list">
           <li className="navigation-block-list-header">
-            <p style={{ marginLeft: "10px" }}>GENERAL</p>
+            <p>GENERAL</p>
           </li>
           <Link to={"/"}>
             <li className="navigation-block-list-link">
@@ -27,7 +32,7 @@ export const Navbar: React.FC = () => {
             Dashboard
           </li>
           <li className="navigation-block-list-header">
-            <p style={{ marginLeft: "10px" }}>BACKOFFICE</p>
+            <p>BACKOFFICE</p>
           </li>
           <Link to={"/suppliers"}>
             <li className="navigation-block-list-link">

@@ -2,6 +2,9 @@
   margin-left: 40px;
   font-size: 1rem;
 }
+.icon-media {
+  display: none !important;
+}
 header {
   display: flex;
   justify-content: space-between;
@@ -56,20 +59,14 @@ header {
 .dropdown-list-header.opened-bt p {
   color: #4788f7;
 }
-.hamburger-button {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  height: 1rem;
-  width: 1.5rem;
-  margin-right: 10px;
-  cursor: pointer;
-  margin-bottom: 5px;
-}
-
-.hamburger-button-li {
-  height: 2px;
-  background: black;
-  border-radius: 5px;
+@media (max-width: 1024px) {
+  .clock {
+    display: none;
+  }
+  .dropdown-links {
+    display: none;
+  }
+  .icon-media {
+    display: block !important;
+  }
 }

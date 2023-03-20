@@ -1,6 +1,7 @@
+import React, { createContext } from "react";
 import { useEffect, useRef, useState } from "react";
 import { Navbar } from "../Navbar/Navbar";
-
+const ThemeContext = createContext(null);
 import "./Header.css";
 
 export const Header: React.FC = () => {
@@ -26,14 +27,17 @@ export const Header: React.FC = () => {
   return (
     <div>
       <header>
+        <span
+          className="icon-media material-symbols-outlined"
+          onClick={(e) => React.createContext(false)}
+        >
+          menu
+        </span>
+        <span className="icon-media material-symbols-outlined">more_vert</span>
         <p className="clock">{date.toLocaleTimeString()}</p>
         <div className="dropdown-links">
           <div className="dropdown-list-header" onClick={openList} ref={button}>
-            <div className="hamburger-button">
-              <div className="hamburger-button-li"></div>
-              <div className="hamburger-button-li"></div>
-              <div className="hamburger-button-li"></div>
-            </div>
+            <span className="material-symbols-outlined">menu</span>
             <p className="dropdown-list-header-logo">
               SQLite Links
               <span className="material-symbols-outlined arrow-down">
