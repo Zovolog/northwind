@@ -1,9 +1,3 @@
-.App {
-  display: flex;
-  width: 100%;
-  height: 100%;
-}
-
 .none {
   display: none;
 }
@@ -121,4 +115,16 @@ table {
 }
 .whatPage {
   width: 7rem;
+}
+
+@media (max-width: 1024px) {
+  .App {
+    overflow: hidden;
+  }
+  .main {
+    overflow: hidden;
+  }
+  .root {
+    overflow: hidden;
+  }
 }
