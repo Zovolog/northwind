@@ -55,6 +55,7 @@ export const Employees: React.FC = (props) => {
                     <th style={{ fontWeight: 700 }}>City</th>
                     <th style={{ fontWeight: 700 }}>Phone</th>
                     <th style={{ fontWeight: 700 }}>Country</th>
+                    <th></th>
                   </tr>
                 </thead>
                 <tbody>

@@ -80,6 +80,7 @@ export const Orders: React.FC = (props) => {
                       <th>{order.shipName}</th>
                       <th>{order.shipCity}</th>
                       <th>{order.shipCountry}</th>
+                      <th></th>
                     </tr>
                   ))}
                 </tbody>

@@ -12,7 +12,7 @@ export const Suppliers: React.FC = (props) => {
   const baseUrl = "https://northwind.onrender.com/suppliers";
 
   const { handleDashChange, resCount } = useContext(Logs);
-  
+
   useEffect(() => {
     axios
       .get(baseUrl + `?page=${page}`)
@@ -57,6 +57,7 @@ export const Suppliers: React.FC = (props) => {
                     <th style={{ fontWeight: 700 }}>Title</th>
                     <th style={{ fontWeight: 700 }}>City</th>
                     <th style={{ fontWeight: 700 }}>Country</th>
+                    <th></th>
                   </tr>
                 </thead>
                 <tbody>

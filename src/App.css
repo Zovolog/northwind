@@ -4,6 +4,9 @@
 .main {
   width: 100%;
 }
+.mobile-table {
+  display: none;
+}
 .main-content {
   width: 100%;
   background-color: #f9fafb;
@@ -29,6 +32,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 0.75rem 1rem;
+  border: 1px solid #f3f4f6;
 }
 td {
   display: table-cell;
@@ -37,10 +41,6 @@ th {
   font-weight: 400;
   text-align: left;
   padding: 0.5rem 0.75rem;
-}
-thead {
-  border-top: 1px solid;
-  border-color: #dadada;
 }
 table {
   border-collapse: collapse;
@@ -57,10 +57,13 @@ table {
   width: 2rem;
   border-radius: 999px;
 }
+.info-body {
+  padding: 1.5rem;
+}
 .info-body-user {
   display: flex;
-  width: 100%;
   text-align: left;
+  padding: 1.5rem;
 }
 .dark-elem {
   background-color: #f9fafb;
@@ -81,8 +84,7 @@ table {
   display: flex;
   align-items: center;
   border-top: 1px solid rgb(198, 198, 198);
-  height: 3rem;
-  margin-top: 1rem;
+  padding: 1.5rem;
 }
 .bt-return {
   border-radius: 0.25rem;
@@ -96,7 +98,6 @@ table {
   outline: none;
   color: white;
   background-color: #ef4444;
-  margin-top: 1rem;
 }
 .bt-return:hover {
   background-color: #dc2626;
@@ -114,4 +115,31 @@ table {
 }
 .whatPage {
   width: 7rem;
+}
+@media (max-width: 1024px) {
+  .desktop-table {
+    display: none;
+  }
+  .mobile-table {
+    display: block;
+  }
+  td {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.75rem 1rem;
+    border: 1px solid #f3f4f6;
+    text-align: right;
+  }
+  .info-body {
+    padding: 0;
+  }
+  .image-row {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+  .big-icon {
+    width: 4rem;
+    border-radius: 100rem;
+  }
 }

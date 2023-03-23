@@ -66,7 +66,7 @@ export const Order: React.FC = () => {
             </p>
           </div>
           {data ? (
-            <div>
+            <div className="info-body">
               <div className="info-body-user">
                 <div className="info-body-user-text-block">
                   <p className="info-body-header">Customer Id</p>
@@ -117,14 +117,10 @@ export const Order: React.FC = () => {
                     </tr>
                   </thead>
                   <tbody>
-                    {productList.map((product: any) => (
+                    {productList.map((product: any, index) => (
                       <tr
                         key={product.productID}
-                        className={
-                          product.productID % 2 === 0
-                            ? "dark-elem"
-                            : "light-elem"
-                        }
+                        className={index % 2 != 0 ? "dark-elem" : "light-elem"}
                       >
                         <th>
                           <Link
