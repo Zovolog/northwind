@@ -46,53 +46,99 @@ export const Employees: React.FC = (props) => {
               <span className="material-symbols-outlined">redo</span>
             </div>
             <div className="info-body">
-              <table>
-                <thead>
-                  <tr>
-                    <th></th>
-                    <th style={{ fontWeight: 700 }}>Name</th>
-                    <th style={{ fontWeight: 700 }}>Title</th>
-                    <th style={{ fontWeight: 700 }}>City</th>
-                    <th style={{ fontWeight: 700 }}>Phone</th>
-                    <th style={{ fontWeight: 700 }}>Country</th>
-                    <th></th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {data.map((employee: any) => (
-                    <tr
-                      key={employee.employeeID}
-                      className={
-                        employee.employeeID % 2 != 0
-                          ? "dark-elem"
-                          : "light-elem"
-                      }
-                    >
-                      <th>
-                        <img
-                          src={`https://api.dicebear.com/5.x/initials/svg?seed=${
-                            employee.firstName + " " + employee.lastName
-                          }`}
-                          className="name-icons"
-                        />
-                      </th>
-
-                      <th>
-                        <Link
-                          to={`/employees/${employee.employeeID}`}
-                          className="link"
-                        >
-                          {employee.firstName + " " + employee.lastName}
-                        </Link>
-                      </th>
-                      <th>{employee.title}</th>
-                      <th>{employee.city}</th>
-                      <th>{employee.homePhone}</th>
-                      <th>{employee.country}</th>
+              <div className="desktop-table">
+                <table>
+                  <thead>
+                    <tr>
+                      <th></th>
+                      <th style={{ fontWeight: 700 }}>Name</th>
+                      <th style={{ fontWeight: 700 }}>Title</th>
+                      <th style={{ fontWeight: 700 }}>City</th>
+                      <th style={{ fontWeight: 700 }}>Phone</th>
+                      <th style={{ fontWeight: 700 }}>Country</th>
+                      <th></th>
                     </tr>
-                  ))}
-                </tbody>
-              </table>
+                  </thead>
+                  <tbody>
+                    {data.map((employee: any) => (
+                      <tr
+                        key={employee.employeeID}
+                        className={
+                          employee.employeeID % 2 != 0
+                            ? "dark-elem"
+                            : "light-elem"
+                        }
+                      >
+                        <th>
+                          <img
+                            src={`https://api.dicebear.com/5.x/initials/svg?seed=${
+                              employee.firstName + " " + employee.lastName
+                            }`}
+                            className="name-icons"
+                          />
+                        </th>
+
+                        <th>
+                          <Link
+                            to={`/employees/${employee.employeeID}`}
+                            className="link"
+                          >
+                            {employee.firstName + " " + employee.lastName}
+                          </Link>
+                        </th>
+                        <th>{employee.title}</th>
+                        <th>{employee.city}</th>
+                        <th>{employee.homePhone}</th>
+                        <th>{employee.country}</th>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+              <div className="mobile-table">
+                <table>
+                  <tbody>
+                    {data.map((employee: any) => (
+                      <tr key={employee.employeeID}>
+                        <td className="image-row">
+                          <img
+                            src={`https://api.dicebear.com/5.x/initials/svg?seed=${
+                              employee.firstName + " " + employee.lastName
+                            }`}
+                            className="big-icon"
+                          />
+                        </td>
+
+                        <td>
+                          <span className="text-weight">Name</span>
+                          <Link
+                            to={`/employees/${employee.employeeID}`}
+                            className="link"
+                          >
+                            {employee.firstName + " " + employee.lastName}
+                          </Link>
+                        </td>
+                        <td>
+                          <span className="text-weight">Title</span>
+                          {employee.title}
+                        </td>
+                        <td>
+                          <span className="text-weight">City</span>
+                          {employee.city}
+                        </td>
+                        <td>
+                          <span className="text-weight">Phone</span>
+                          {employee.homePhone}
+                        </td>
+                        <td>
+                          <span className="text-weight">Country</span>
+                          {employee.country}
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
             </div>
             <div className="info-footer">
               {pageQty > 1 ? (

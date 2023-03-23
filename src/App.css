@@ -116,6 +116,9 @@ table {
 .whatPage {
   width: 7rem;
 }
+.text-weight {
+  font-weight: 600;
+}
 @media (max-width: 1024px) {
   .desktop-table {
     display: none;
@@ -129,6 +132,9 @@ table {
     padding: 0.75rem 1rem;
     border: 1px solid #f3f4f6;
     text-align: right;
+  }
+  tr {
+    border: 6px solid #f9fafb;
   }
   .info-body {
     padding: 0;

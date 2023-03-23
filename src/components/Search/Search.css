@@ -1,3 +1,11 @@
+.info-container-search {
+  width: 100%;
+  margin: 0 auto;
+  background-color: white;
+  border: 1px solid #f3f4f6;
+  box-sizing: border-box;
+  padding: 1.5rem;
+}
 .info-name-search {
   font-weight: 600;
   font-size: 1.3em;
@@ -67,6 +75,7 @@
 .search-icon {
   position: absolute;
   left: 0;
+  top: 1.3rem;
   padding-left: 0.2rem;
 }
 .input-search {
@@ -76,6 +85,7 @@
   border: 1px solid #9ca3af;
   outline: none;
   box-sizing: border-box;
+  margin-top: 1rem;
 }
 .input-search:focus {
   border: 2px solid #9dc0fa;

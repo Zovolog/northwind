@@ -103,7 +103,7 @@ export const Customers: React.FC = (props) => {
                         </td>
 
                         <td>
-                          <span>Company</span>
+                          <span className="text-weight">Company</span>
                           <Link
                             to={`/customers/${customer.customerID}`}
                             className="link"
@@ -112,16 +112,20 @@ export const Customers: React.FC = (props) => {
                           </Link>
                         </td>
                         <td>
-                          <span>Contact</span> {customer.contactName}
+                          <span className="text-weight">Contact</span>{" "}
+                          {customer.contactName}
                         </td>
                         <td>
-                          <span>Title</span> {customer.contactTitle}
+                          <span className="text-weight">Title</span>{" "}
+                          {customer.contactTitle}
                         </td>
                         <td>
-                          <span>City</span> {customer.city}
+                          <span className="text-weight">City</span>{" "}
+                          {customer.city}
                         </td>
                         <td>
-                          <span>Country</span> {customer.country}
+                          <span className="text-weight">Country</span>{" "}
+                          {customer.country}
                         </td>
                       </tr>
                     ))}

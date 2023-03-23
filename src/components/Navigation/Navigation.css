@@ -164,5 +164,6 @@ header {
   }
   .icon-media {
     display: block !important;
+    padding: 0.5rem 0.75rem;
   }
 }

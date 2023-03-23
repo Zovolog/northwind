@@ -46,42 +46,79 @@ export const Products: React.FC = (props) => {
               <span className="material-symbols-outlined">redo</span>
             </div>
             <div className="info-body">
-              <table>
-                <thead>
-                  <tr>
-                    <th style={{ fontWeight: 700 }}>Name</th>
-                    <th style={{ fontWeight: 700 }}>Qt per unit</th>
-                    <th style={{ fontWeight: 700 }}>Price</th>
-                    <th style={{ fontWeight: 700 }}>Stock</th>
-                    <th style={{ fontWeight: 700 }}>Orders</th>
-                    <th></th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {data.map((user: any) => (
-                    <tr
-                      key={user.productID}
-                      className={
-                        user.productID % 2 != 0 ? "dark-elem" : "light-elem"
-                      }
-                    >
-                      <th>
-                        <Link
-                          to={`/products/${user.productID}`}
-                          className="link"
-                        >
-                          {user.productName}
-                        </Link>
-                      </th>
-
-                      <th>{user.quantityPerUnit}</th>
-                      <th>${user.unitPrice}</th>
-                      <th>{user.unitsInStock}</th>
-                      <th>{user.unitsOnOrder}</th>
+              <div className="desktop-table">
+                <table>
+                  <thead>
+                    <tr>
+                      <th style={{ fontWeight: 700 }}>Name</th>
+                      <th style={{ fontWeight: 700 }}>Qt per unit</th>
+                      <th style={{ fontWeight: 700 }}>Price</th>
+                      <th style={{ fontWeight: 700 }}>Stock</th>
+                      <th style={{ fontWeight: 700 }}>Orders</th>
+                      <th></th>
                     </tr>
-                  ))}
-                </tbody>
-              </table>
+                  </thead>
+                  <tbody>
+                    {data.map((user: any) => (
+                      <tr
+                        key={user.productID}
+                        className={
+                          user.productID % 2 != 0 ? "dark-elem" : "light-elem"
+                        }
+                      >
+                        <th>
+                          <Link
+                            to={`/products/${user.productID}`}
+                            className="link"
+                          >
+                            {user.productName}
+                          </Link>
+                        </th>
+
+                        <th>{user.quantityPerUnit}</th>
+                        <th>${user.unitPrice}</th>
+                        <th>{user.unitsInStock}</th>
+                        <th>{user.unitsOnOrder}</th>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+              <div className="mobile-table">
+                <table>
+                  <tbody>
+                    {data.map((user: any) => (
+                      <tr key={user.productID}>
+                        <td>
+                          <span className="text-weight">Product</span>
+                          <Link
+                            to={`/products/${user.productID}`}
+                            className="link"
+                          >
+                            {user.productName}
+                          </Link>
+                        </td>
+                        <td>
+                          <span className="text-weight">Qpu</span>
+                          {user.quantityPerUnit}
+                        </td>
+                        <td>
+                          <span className="text-weight">Price</span>$
+                          {user.unitPrice}
+                        </td>
+                        <td>
+                          <span className="text-weight">Stock</span>
+                          {user.unitsInStock}
+                        </td>
+                        <td>
+                          <span className="text-weight">Orders</span>
+                          {user.unitsOnOrder}
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
             </div>
             <div className="info-footer">
               <Container>

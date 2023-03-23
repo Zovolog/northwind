@@ -46,45 +46,97 @@ export const Orders: React.FC = (props) => {
               <span className="material-symbols-outlined">redo</span>
             </div>
             <div className="info-body">
-              <table>
-                <thead>
-                  <tr>
-                    <th style={{ fontWeight: 700 }}>Id</th>
-                    <th style={{ fontWeight: 700 }}>Total Price</th>
-                    <th style={{ fontWeight: 700 }}>Products</th>
-                    <th style={{ fontWeight: 700 }}>Quantity</th>
-                    <th style={{ fontWeight: 700 }}>Date</th>
-                    <th style={{ fontWeight: 700 }}>Name</th>
-                    <th style={{ fontWeight: 700 }}>City</th>
-                    <th style={{ fontWeight: 700 }}>Country</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {data.map((order: any) => (
-                    <tr
-                      key={order.orderID}
-                      className={
-                        order.orderID % 2 === 0 ? "dark-elem" : "light-elem"
-                      }
-                    >
-                      <th>
-                        {" "}
-                        <Link to={`/orders/${order.orderID}`} className="link">
-                          {order.orderID}
-                        </Link>
-                      </th>
-                      <th>{order.totalProductPrice}</th>
-                      <th>{order.totalProductsQuantity}</th>
-                      <th>{order.totalProductsItems}</th>
-                      <th>{order.shippedDate.slice(0, 10)}</th>
-                      <th>{order.shipName}</th>
-                      <th>{order.shipCity}</th>
-                      <th>{order.shipCountry}</th>
-                      <th></th>
+              <div className="desktop-table">
+                <table>
+                  <thead>
+                    <tr>
+                      <th style={{ fontWeight: 700 }}>Id</th>
+                      <th style={{ fontWeight: 700 }}>Total Price</th>
+                      <th style={{ fontWeight: 700 }}>Products</th>
+                      <th style={{ fontWeight: 700 }}>Quantity</th>
+                      <th style={{ fontWeight: 700 }}>Date</th>
+                      <th style={{ fontWeight: 700 }}>Name</th>
+                      <th style={{ fontWeight: 700 }}>City</th>
+                      <th style={{ fontWeight: 700 }}>Country</th>
                     </tr>
-                  ))}
-                </tbody>
-              </table>
+                  </thead>
+                  <tbody>
+                    {data.map((order: any) => (
+                      <tr
+                        key={order.orderID}
+                        className={
+                          order.orderID % 2 === 0 ? "dark-elem" : "light-elem"
+                        }
+                      >
+                        <th>
+                          {" "}
+                          <Link
+                            to={`/orders/${order.orderID}`}
+                            className="link"
+                          >
+                            {order.orderID}
+                          </Link>
+                        </th>
+                        <th>{order.totalProductPrice}</th>
+                        <th>{order.totalProductsQuantity}</th>
+                        <th>{order.totalProductsItems}</th>
+                        <th>{order.shippedDate.slice(0, 10)}</th>
+                        <th>{order.shipName}</th>
+                        <th>{order.shipCity}</th>
+                        <th>{order.shipCountry}</th>
+                        <th></th>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+              <div className="mobile-table">
+                <table>
+                  <tbody>
+                    {data.map((order: any) => (
+                      <tr key={order.orderID}>
+                        <td>
+                          <span className="text-weight">Id</span>
+                          <Link
+                            to={`/orders/${order.orderID}`}
+                            className="link"
+                          >
+                            {order.orderID}
+                          </Link>
+                        </td>
+                        <td>
+                          <span className="text-weight">Price</span>
+                          {order.totalProductPrice}
+                        </td>
+                        <td>
+                          <span className="text-weight">Products</span>
+                          {order.totalProductsQuantity}
+                        </td>
+                        <td>
+                          <span className="text-weight">Quantity</span>
+                          {order.totalProductsItems}
+                        </td>
+                        <td>
+                          <span className="text-weight">Date</span>
+                          {order.shippedDate.slice(0, 10)}
+                        </td>
+                        <td>
+                          <span className="text-weight">Name</span>
+                          {order.shipName}
+                        </td>
+                        <td>
+                          <span className="text-weight">City</span>
+                          {order.shipCity}
+                        </td>
+                        <td>
+                          <span className="text-weight">Country</span>
+                          {order.shipCountry}
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
             </div>
             <div className="info-footer">
               <Container>

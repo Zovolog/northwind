@@ -48,48 +48,90 @@ export const Suppliers: React.FC = (props) => {
               <span className="material-symbols-outlined">redo</span>
             </div>
             <div className="info-body">
-              <table>
-                <thead>
-                  <tr>
-                    <th></th>
-                    <th style={{ fontWeight: 700 }}>Company</th>
-                    <th style={{ fontWeight: 700 }}>Contact</th>
-                    <th style={{ fontWeight: 700 }}>Title</th>
-                    <th style={{ fontWeight: 700 }}>City</th>
-                    <th style={{ fontWeight: 700 }}>Country</th>
-                    <th></th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {data.map((user: any) => (
-                    <tr
-                      key={user.supplierID}
-                      className={
-                        user.supplierID % 2 != 0 ? "dark-elem" : "light-elem"
-                      }
-                    >
-                      <th>
-                        <img
-                          src={`https://api.dicebear.com/5.x/initials/svg?seed=${user.contactName}`}
-                          className="name-icons"
-                        />
-                      </th>
-                      <th>
-                        <Link
-                          to={`/suppliers/${user.supplierID}`}
-                          className="link"
-                        >
-                          {user.companyName}
-                        </Link>
-                      </th>
-                      <th>{user.contactName}</th>
-                      <th>{user.contactTitle}</th>
-                      <th>{user.city}</th>
-                      <th>{user.country}</th>
+              <div className="desktop-table">
+                <table>
+                  <thead>
+                    <tr>
+                      <th></th>
+                      <th style={{ fontWeight: 700 }}>Company</th>
+                      <th style={{ fontWeight: 700 }}>Contact</th>
+                      <th style={{ fontWeight: 700 }}>Title</th>
+                      <th style={{ fontWeight: 700 }}>City</th>
+                      <th style={{ fontWeight: 700 }}>Country</th>
+                      <th></th>
                     </tr>
-                  ))}
-                </tbody>
-              </table>
+                  </thead>
+                  <tbody>
+                    {data.map((user: any) => (
+                      <tr
+                        key={user.supplierID}
+                        className={
+                          user.supplierID % 2 != 0 ? "dark-elem" : "light-elem"
+                        }
+                      >
+                        <th>
+                          <img
+                            src={`https://api.dicebear.com/5.x/initials/svg?seed=${user.contactName}`}
+                            className="name-icons"
+                          />
+                        </th>
+                        <th>
+                          <Link
+                            to={`/suppliers/${user.supplierID}`}
+                            className="link"
+                          >
+                            {user.companyName}
+                          </Link>
+                        </th>
+                        <th>{user.contactName}</th>
+                        <th>{user.contactTitle}</th>
+                        <th>{user.city}</th>
+                        <th>{user.country}</th>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+              <div className="mobile-table">
+                <table>
+                  <tbody>
+                    {data.map((user: any) => (
+                      <tr key={user.supplierID}>
+                        <th>
+                          <img
+                            src={`https://api.dicebear.com/5.x/initials/svg?seed=${user.contactName}`}
+                            className="big-icon"
+                          />
+                        </th>
+                        <td>
+                          <Link
+                            to={`/suppliers/${user.supplierID}`}
+                            className="link"
+                          >
+                            {user.companyName}
+                          </Link>
+                        </td>
+                        <td>
+                          <span className="text-weight">Contact</span>
+                          {user.contactName}
+                        </td>
+                        <td>
+                          <span className="text-weight">Title</span>
+                          {user.contactTitle}
+                        </td>
+                        <td>
+                          <span className="text-weight">City</span>
+                          {user.city}
+                        </td>
+                        <td>
+                          <span className="text-weight">Country</span>
+                          {user.country}
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
             </div>
             <div className="info-footer">
               <Container>

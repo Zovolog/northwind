@@ -38,7 +38,7 @@ export const Search: React.FC = () => {
 
   return (
     <div className="info-wrapper">
-      <div className="info-container">
+      <div className="info-container-search">
         <p className="info-name">Search Database</p>
         <div className="search-block">
           <input

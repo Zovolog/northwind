@@ -106,7 +106,7 @@ export const Navigation: React.FC = () => {
       <div className="main" ref={mainContent}>
         <header>
           <span
-            className="icon-media material-symbols-outlined icon-bt"
+            className="icon-media material-symbols-outlined"
             onClick={(e) => {
               navbar.current?.classList.toggle("navigation-column");
               navbar.current?.classList.toggle("navigation-column-opened");
