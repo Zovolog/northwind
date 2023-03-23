@@ -1,13 +1,16 @@
 import { Container, Pagination, Stack } from "@mui/material";
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { Logs } from "../../Main";
 
 export const Employees: React.FC = (props) => {
   const [data, getData] = useState([]);
   const [page, setPage] = useState(1);
   const [pageQty, setPageQty] = useState(0);
   const baseUrl = "https://northwind.onrender.com/employees";
+
+  const { handleDashChange, resCount } = useContext(Logs);
 
   useEffect(() => {
     axios
@@ -16,6 +19,18 @@ export const Employees: React.FC = (props) => {
         console.log(response.data);
         getData(response.data.employees.data);
         setPageQty(Math.ceil(response.data.count.data / 20));
+        handleDashChange((prevState: any) => {
+          const updateDash = [
+            response.data.count.info,
+            response.data.employees.info,
+            ...prevState,
+          ];
+          return updateDash;
+        });
+
+        resCount((prevState: number) => {
+          return response.data.employees.data.length + 1 + prevState;
+        });
       })
       .catch(function (error) {});
   }, [page]);

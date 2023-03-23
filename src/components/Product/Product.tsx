@@ -1,6 +1,7 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
+import { Logs } from "../../Main";
 interface product {
   productName: string;
   supplierID: number;
@@ -17,6 +18,8 @@ export const Product: React.FC = () => {
   const [nameSupplier, getnameSupplier] = useState("");
   const navigate = useNavigate();
 
+  const { handleDashChange, resCount } = useContext(Logs);
+
   useEffect(() => {
     axios
       .get(`https://northwind.onrender.com/products/${productId}`)
@@ -24,6 +27,14 @@ export const Product: React.FC = () => {
         getData(response.data.product.data.products);
         getnameSupplier(response.data.product.data.suppliers.companyName);
         console.log(response.data.product.data);
+
+        handleDashChange((prevState: any) => {
+          const updateDash = [response.data.product.info, ...prevState];
+          return updateDash;
+        });
+        resCount((prevState: number) => {
+          return 1 + prevState;
+        });
       })
       .catch(function (error) {});
   }, []);

@@ -1,6 +1,7 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
+import { Logs } from "../../Main";
 
 interface employee {
   firstName: string;
@@ -24,11 +25,12 @@ export const Employee: React.FC = () => {
   const [nameReporter, getnameReporter] = useState("");
   const navigate = useNavigate();
 
+  const { handleDashChange, resCount } = useContext(Logs);
   useEffect(() => {
     axios
       .get(`https://northwind.onrender.com/employees/${employeeID}`)
       .then(function (response) {
-        console.log(response.data.employee.data);
+        console.log(response.data);
         getData(response.data.employee.data.employees);
 
         getnameReporter("");
@@ -38,6 +40,13 @@ export const Employee: React.FC = () => {
             " " +
             response.data.employee.data.reportsToTable.lastName
         );
+        handleDashChange((prevState: any) => {
+          const updateDash = [response.data.employee.info, ...prevState];
+          return updateDash;
+        });
+        resCount((prevState: number) => {
+          return 1 + prevState;
+        });
       })
       .catch(function (error) {});
   }, [employeeID]);

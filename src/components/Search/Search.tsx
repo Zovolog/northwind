@@ -1,23 +1,32 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { Logs } from "../../Main";
 import "./Search.css";
 
 export const Search: React.FC = () => {
   const [option, getOption] = useState("products");
   const [key, getKey] = useState("");
   const [data, getData] = useState([]);
-  const [number, getNumber] = useState(1);
+
+  const { handleDashChange, resCount } = useContext(Logs);
+
   function request(item: string, key: string) {
     axios
       .get(`https://northwind.onrender.com/search-${item}/${key}`)
       .then(function (response) {
-        console.log(response.data.data);
+        console.log(response.data);
         getData(response.data.data);
+        handleDashChange((prevState: any) => {
+          const updateDash = [response.data.info, ...prevState];
+          return updateDash;
+        });
+        resCount((prevState: number) => {
+          return response.data.data.length + prevState;
+        });
       })
       .catch(function (error) {
         getData([]);
-        console.log(data);
       });
   }
 

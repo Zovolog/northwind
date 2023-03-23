@@ -1,6 +1,7 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import { Logs } from "../../Main";
 
 interface customer {
   companyName: string;
@@ -20,12 +21,20 @@ export const Customer: React.FC = () => {
   const [data, getData] = useState<customer | null>(null);
   const navigate = useNavigate();
 
+  const { handleDashChange, resCount } = useContext(Logs);
   useEffect(() => {
     axios
       .get(`https://northwind.onrender.com/customers/${customerID}`)
       .then(function (response) {
         getData(response.data.customer.data);
-        console.log(response.data.customer.data);
+        console.log(response.data);
+        handleDashChange((prevState: any) => {
+          const updateDash = [response.data.customer.info, ...prevState];
+          return updateDash;
+        });
+        resCount((prevState: number) => {
+          return 1 + prevState;
+        });
       })
       .catch(function (error) {});
   }, []);
@@ -42,7 +51,7 @@ export const Customer: React.FC = () => {
               >
                 ballot
               </span>
-              Supplier information
+              Customer information
             </p>
           </div>
           {data ? (

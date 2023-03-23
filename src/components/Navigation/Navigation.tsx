@@ -9,6 +9,7 @@ export const Navigation: React.FC = () => {
   const button = useRef<HTMLDivElement>(null);
   const [date, setDate] = useState(new Date());
   const navbar = useRef<HTMLDivElement>(null);
+  const mainContent = useRef<HTMLDivElement>(null);
 
   function refreshClock() {
     setDate(new Date());
@@ -45,12 +46,14 @@ export const Navigation: React.FC = () => {
                 Home
               </li>
             </Link>
-            <li className="navigation-block-list-link">
-              <span className="material-symbols-outlined icon">
-                display_settings
-              </span>
-              Dashboard
-            </li>
+            <Link to={"/dash"}>
+              <li className="navigation-block-list-link">
+                <span className="material-symbols-outlined icon">
+                  display_settings
+                </span>
+                Dashboard
+              </li>
+            </Link>
             <li className="navigation-block-list-header">
               <p>BACKOFFICE</p>
             </li>
@@ -100,15 +103,15 @@ export const Navigation: React.FC = () => {
           </ul>
         </div>
       </div>
-      <div className="main">
+      <div className="main" ref={mainContent}>
         <header>
           <span
-            className="icon-media material-symbols-outlined"
+            className="icon-media material-symbols-outlined icon-bt"
             onClick={(e) => {
               navbar.current?.classList.toggle("navigation-column");
-              navbar.current?.classList.toggle(
-                "navigation-column-opened"
-              );
+              navbar.current?.classList.toggle("navigation-column-opened");
+              document.body.classList.toggle("hidden");
+              mainContent.current?.classList.toggle("hidden");
             }}
           >
             menu
@@ -123,7 +126,7 @@ export const Navigation: React.FC = () => {
               onClick={openList}
               ref={button}
             >
-              <span className="material-symbols-outlined">menu</span>
+              <span className="material-symbols-outlined icon-bt">menu</span>
               <p className="dropdown-list-header-logo">
                 SQLite Links
                 <span className="material-symbols-outlined arrow-down">
@@ -156,7 +159,9 @@ export const Navigation: React.FC = () => {
             </div>
           </div>
         </header>
-        <Main />
+        <div className="main-content">
+          <Main />
+        </div>
       </div>
     </div>
   );

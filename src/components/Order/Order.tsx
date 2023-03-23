@@ -1,6 +1,7 @@
 import axios from "axios";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { useParams, useNavigate, Link } from "react-router-dom";
+import { Logs } from "../../Main";
 
 interface order {
   customerID: string;
@@ -26,6 +27,8 @@ export const Order: React.FC = () => {
   const [productList, getproductList] = useState([]);
   const navigate = useNavigate();
 
+  const { handleDashChange, resCount } = useContext(Logs);
+
   useEffect(() => {
     axios
       .get(`https://northwind.onrender.com/orders/${orderID}`)
@@ -33,6 +36,17 @@ export const Order: React.FC = () => {
         console.log(response.data);
         getData(response.data.order.data);
         getproductList(response.data.productsInOrder.data);
+        handleDashChange((prevState: any) => {
+          const updateDash = [
+            response.data.order.info,
+            response.data.productsInOrder.info,
+            ...prevState,
+          ];
+          return updateDash;
+        });
+        resCount((prevState: number) => {
+          return 1 + prevState;
+        });
       })
       .catch(function (error) {});
   }, []);
@@ -78,7 +92,7 @@ export const Order: React.FC = () => {
                   <p className="info-body-header">Order Date</p>
                   <p>{data.orderDate.slice(0, 10)}</p>
                   <p className="info-body-header">Required Date</p>
-                  <p>{data.orderDate.slice(0, 10)}</p>
+                  <p>{data.requiredDate.slice(0, 10)}</p>
                   <p className="info-body-header">Shipped Date</p>
                   <p>{data.shippedDate.slice(0, 10)}</p>
                   <p className="info-body-header">Ship City</p>
@@ -113,7 +127,6 @@ export const Order: React.FC = () => {
                         }
                       >
                         <th>
-                          {" "}
                           <Link
                             to={`/products/${product.productID}`}
                             className="link"

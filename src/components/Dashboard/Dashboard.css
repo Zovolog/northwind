@@ -1,0 +1,28 @@
+.dashboard-wrapper,
+.dashboard-main {
+  padding: 1.5rem;
+}
+.dashboard-main-metrics {
+  display: flex;
+}
+.dashboard-header {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+}
+.dashboard-header-under {
+  font-size: 0.75rem;
+  line-height: 1rem;
+}
+.dashboard-text {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+.dashboard-main-metrics-block {
+  width: 50%;
+}
+.dashboard-main-logs {
+  padding-top: 1.5rem;
+}
+.block-log {
+  padding-top: 0.5rem;
+}

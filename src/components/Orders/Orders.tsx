@@ -1,13 +1,17 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import { Container, Pagination, Stack } from "@mui/material";
+import { Logs } from "../../Main";
 
 export const Orders: React.FC = (props) => {
   const [data, getData] = useState([]);
   const [page, setPage] = useState(1);
   const [pageQty, setPageQty] = useState(0);
+
   const baseUrl = "https://northwind.onrender.com/orders";
+
+  const { handleDashChange, resCount } = useContext(Logs);
   useEffect(() => {
     axios
       .get(baseUrl + `?page=${page}`)
@@ -15,6 +19,18 @@ export const Orders: React.FC = (props) => {
         console.log(response.data);
         getData(response.data.orders.data);
         setPageQty(Math.ceil(response.data.count.data / 20));
+
+        handleDashChange((prevState: any) => {
+          const updateDash = [
+            response.data.count.info,
+            response.data.orders.info,
+            ...prevState,
+          ];
+          return updateDash;
+        });
+        resCount((prevState: number) => {
+          return response.data.orders.data.length + 1 + prevState;
+        });
       })
       .catch(function (error) {});
   }, [page]);

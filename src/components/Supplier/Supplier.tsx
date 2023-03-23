@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { Logs } from "../../Main";
 
 interface supplier {
   companyName: string;
@@ -18,12 +19,20 @@ export const Supplier: React.FC = () => {
   const [data, getData] = useState<supplier | null>(null);
   const navigate = useNavigate();
 
+  const { handleDashChange, resCount } = useContext(Logs);
   useEffect(() => {
     axios
       .get(`https://northwind.onrender.com/suppliers/${userSupplierID}`)
       .then(function (response) {
         getData(response.data.supplier.data);
-        console.log(response.data.supplier.data);
+        console.log(response.data);
+        handleDashChange((prevState: any) => {
+          const updateDash = [response.data.supplier.info, ...prevState];
+          return updateDash;
+        });
+        resCount((prevState: number) => {
+          return 1 + prevState;
+        });
       })
       .catch(function (error) {});
   }, []);

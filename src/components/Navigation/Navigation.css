@@ -10,11 +10,14 @@
   position: sticky;
   top: 0;
   left: 0;
-  bottom: -2px;
+  transition-duration: 0.15s;
+  transition-property: all;
   width: 17rem;
   height: 100vh;
   z-index: 40;
   background-color: #1f2937;
+  transition-duration: 0.15s;
+  transition-property: all;
 }
 
 .navigation-column-opened {
@@ -91,18 +94,22 @@ header {
   display: flex;
   align-items: center;
   flex-direction: column;
-  margin-left: 1rem;
-  margin-top: 10px;
+  padding: 0.5rem 0.75rem;
 }
 .dropdown-list-header {
   display: flex;
   cursor: pointer;
   align-items: center;
   justify-content: center;
-  width: 240px;
+  padding: 0.5rem 0.75rem;
+  width: 100%;
 }
 .dropdown-list-header-logo {
   display: flex;
+  margin-left: 0.5rem;
+}
+.icon-bt {
+  margin-bottom: 0.2rem;
 }
 .dropdown-list-body {
   display: none;
@@ -110,11 +117,9 @@ header {
 .opened {
   display: flex;
   flex-direction: column;
-  width: 240px;
   position: absolute;
-  top: 70px;
+  top: 3.5rem;
   right: 1px;
-  padding-left: 20px;
   background-color: white;
   border-top: 1px solid rgb(205, 205, 205);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
@@ -125,17 +130,31 @@ header {
   color: black;
   align-items: center;
   width: 100%;
-  height: 50px;
+  padding: 0.5rem 0.75rem;
 }
 .dropdown-list-header.opened-bt .hamburger-button-li {
   background-color: #4788f7 !important;
 }
 .dropdown-list-header.opened-bt p {
-  color: #4788f7;
+  color: #4788f7 !important;
 }
+.dropdown-list-header.opened-bt span {
+  color: #4788f7 !important;
+}
+.hidden {
+  overflow: hidden !important;
+}
+
 @media (max-width: 1024px) {
   .navigation-column {
     display: none;
+    position: fixed;
+  }
+  header {
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
   }
   .clock {
     display: none;

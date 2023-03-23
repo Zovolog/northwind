@@ -1,21 +1,36 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import { Container, Pagination, Stack } from "@mui/material";
+import { Logs } from "../../Main";
 
 export const Products: React.FC = (props) => {
   const [data, getData] = useState([]);
   const [page, setPage] = useState(1);
   const [pageQty, setPageQty] = useState(0);
+
   const baseUrl = "https://northwind.onrender.com/products";
+
+  const { handleDashChange, resCount } = useContext(Logs);
   useEffect(() => {
     axios
       .get(baseUrl + `?page=${page}`)
       .then(function (response) {
         console.log(response.data);
-        console.log(response.data);
         getData(response.data.products.data);
         setPageQty(Math.ceil(response.data.count.data / 20));
+
+        handleDashChange((prevState: any) => {
+          const updateDash = [
+            response.data.count.info,
+            response.data.products.info,
+            ...prevState,
+          ];
+          return updateDash;
+        });
+        resCount((prevState: number) => {
+          return response.data.products.data.length + 1 + prevState;
+        });
       })
       .catch(function (error) {});
   }, [page]);
@@ -39,6 +54,7 @@ export const Products: React.FC = (props) => {
                     <th style={{ fontWeight: 700 }}>Price</th>
                     <th style={{ fontWeight: 700 }}>Stock</th>
                     <th style={{ fontWeight: 700 }}>Orders</th>
+                    <th></th>
                   </tr>
                 </thead>
                 <tbody>
