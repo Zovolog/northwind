@@ -47,12 +47,12 @@ export const Search: React.FC = () => {
             className="input-search"
             onKeyDown={(ev) => {
               if (ev.keyCode == 13 && option && key) {
-                console.log("Enter press");
                 request(option, key);
               }
             }}
             onChange={(e) => {
               getKey(e.target.value);
+              console.log(option);
             }}
           />
           <span className="material-symbols-outlined search-icon">search</span>
@@ -68,7 +68,9 @@ export const Search: React.FC = () => {
               value="products"
               name="a"
               defaultChecked
-              onChange={(e) => getOption(e.target.value)}
+              onChange={(e) => {
+                getOption(e.target.value);
+              }}
             />
             <span></span>
           </label>
@@ -79,7 +81,10 @@ export const Search: React.FC = () => {
               className="modern-radio"
               value="customers"
               name="a"
-              onChange={(e) => getOption(e.target.value)}
+              onChange={(e) => {
+                getOption(e.target.value);
+                console.log(option);
+              }}
             />
             <span></span>
           </label>
@@ -94,7 +99,7 @@ export const Search: React.FC = () => {
                 <div>
                   {" "}
                   {data.map((product: any, index) => (
-                    <div key={product.productID}>
+                    <div key={index}>
                       <Link to={`/products/${product.productID}`}>
                         <p className="link">{product.productName}</p>
                       </Link>
@@ -110,8 +115,8 @@ export const Search: React.FC = () => {
                 <div>
                   {" "}
                   {data.map((customer: any, index) => (
-                    <div key={customer.customerID}>
-                      <Link to={`/products/${customer.customerID}`}>
+                    <div key={index}>
+                      <Link to={`/customers/${customer.customerID}`}>
                         <p className="link">{customer.companyName}</p>
                       </Link>
                       <p className="info">
