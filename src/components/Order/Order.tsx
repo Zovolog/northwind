@@ -146,20 +146,11 @@ export const Order: React.FC = () => {
                 </div>
                 <div className="mobile-table">
                   <table>
-                    <thead>
-                      <tr>
-                        <th style={{ fontWeight: 700 }}>Product</th>
-                        <th style={{ fontWeight: 700 }}>Quantity</th>
-                        <th style={{ fontWeight: 700 }}>Order Price</th>
-                        <th style={{ fontWeight: 700 }}>Total Price</th>
-                        <th style={{ fontWeight: 700 }}>Discount</th>
-                        <th></th>
-                      </tr>
-                    </thead>
                     <tbody>
                       {productList.map((product: any, index) => (
                         <tr key={product.productID}>
                           <td>
+                            <span className="text-weight">Product</span>
                             <Link
                               to={`/products/${product.productID}`}
                               className="link"

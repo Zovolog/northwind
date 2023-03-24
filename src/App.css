@@ -139,7 +139,6 @@ table {
   .image-row {
     display: flex;
     justify-content: center;
-    width: 100%;
   }
   .big-icon {
     width: 6rem;
