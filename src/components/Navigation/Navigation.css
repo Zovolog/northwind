@@ -143,11 +143,15 @@ header {
 .hidden {
   overflow: hidden !important;
 }
-
+.hidden-main {
+  overflow: hidden !important;
+  min-width: 100vw;
+}
 @media (max-width: 1024px) {
   .navigation-column {
     display: none;
     position: fixed;
+    min-width: 17rem;
   }
   header {
     left: 0;
@@ -164,5 +168,9 @@ header {
   .icon-media {
     display: block !important;
     padding: 0.5rem 0.75rem;
+  }
+  body.hidden .info-wrapper,
+  body.hidden header {
+    width: 100vw;
   }
 }

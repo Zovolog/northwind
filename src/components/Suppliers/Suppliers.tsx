@@ -97,12 +97,12 @@ export const Suppliers: React.FC = (props) => {
                   <tbody>
                     {data.map((user: any) => (
                       <tr key={user.supplierID}>
-                        <th>
+                        <td className="image-row">
                           <img
                             src={`https://api.dicebear.com/5.x/initials/svg?seed=${user.contactName}`}
                             className="big-icon"
                           />
-                        </th>
+                        </td>
                         <td>
                           <Link
                             to={`/suppliers/${user.supplierID}`}
