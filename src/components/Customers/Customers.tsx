@@ -38,7 +38,7 @@ export const Customers: React.FC = (props) => {
     <div>
       <div className="info-wrapper">
         {data.length === 0 ? (
-          <p>Loadins customers...</p>
+          <p>Loading customers...</p>
         ) : (
           <div className="info-container">
             <div className="info-header">

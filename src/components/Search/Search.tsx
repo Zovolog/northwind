@@ -101,7 +101,7 @@ export const Search: React.FC = () => {
                   {data.map((product: any, index) => (
                     <div key={index}>
                       <Link to={`/products/${product.productID}`}>
-                        <p className="link">{product.productName}</p>
+                        <p className="link-search">{product.productName}</p>
                       </Link>
                       <p className="info">
                         #{index + 1}, Quantity Per Unit:
@@ -117,7 +117,7 @@ export const Search: React.FC = () => {
                   {data.map((customer: any, index) => (
                     <div key={index}>
                       <Link to={`/customers/${customer.customerID}`}>
-                        <p className="link">{customer.companyName}</p>
+                        <p className="link-search">{customer.companyName}</p>
                       </Link>
                       <p className="info">
                         #{index + 1}, Contact: {customer.contactName}, Title:{" "}
