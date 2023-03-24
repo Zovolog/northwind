@@ -54,19 +54,20 @@ export const Employee: React.FC = () => {
   return (
     <div>
       <div className="info-wrapper">
-        <div className="info-container">
-          <div className="info-header">
-            <p className="info-name">
-              <span
-                className="material-symbols-outlined"
-                style={{ fontSize: "1.4rem", marginRight: "0.5rem" }}
-              >
-                ballot
-              </span>
-              Employee information
-            </p>
-          </div>
-          {data ? (
+        {data ? (
+          <div className="info-container">
+            <div className="info-header">
+              <p className="info-name">
+                <span
+                  className="material-symbols-outlined"
+                  style={{ fontSize: "1.4rem", marginRight: "0.5rem" }}
+                >
+                  ballot
+                </span>
+                Employee information
+              </p>
+            </div>
+
             <div className="info-body-user">
               <div className="info-body-user-text-block">
                 <p className="info-body-header">Name</p>
@@ -109,18 +110,19 @@ export const Employee: React.FC = () => {
                 )}
               </div>
             </div>
-          ) : (
-            <div>No such product</div>
-          )}
-          <div className="info-footer-user">
-            <button
-              className="bt-return"
-              onClick={() => navigate("/employees")}
-            >
-              Go back
-            </button>
+
+            <div className="info-footer-user">
+              <button
+                className="bt-return"
+                onClick={() => navigate("/employees")}
+              >
+                Go back
+              </button>
+            </div>
           </div>
-        </div>
+        ) : (
+          <div>No such product</div>
+        )}
       </div>
     </div>
   );

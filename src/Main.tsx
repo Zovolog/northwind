@@ -30,7 +30,6 @@ export const Main: React.FC = () => {
   const handleDashChange = (newState: any) => {
     setDash(newState);
   };
-
   const resCount = (newState: any) => {
     setResultsCount(newState);
   };

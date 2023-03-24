@@ -3,6 +3,7 @@ import axios from "axios";
 import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Logs } from "../../Main";
+import redo from "../../redo.svg";
 
 export const Customers: React.FC = (props) => {
   const [data, getData] = useState([]);
@@ -42,7 +43,7 @@ export const Customers: React.FC = (props) => {
           <div className="info-container">
             <div className="info-header">
               <p className="info-name">Customers</p>
-              <span className="material-symbols-outlined">redo</span>
+              <img src={redo} />
             </div>
             <div className="info-body">
               <div className="desktop-table">

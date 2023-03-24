@@ -129,7 +129,6 @@ header {
   display: flex;
   color: black;
   align-items: center;
-  width: 100%;
   padding: 0.5rem 0.75rem;
 }
 .dropdown-list-header.opened-bt .hamburger-button-li {

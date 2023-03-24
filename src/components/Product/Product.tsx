@@ -41,19 +41,20 @@ export const Product: React.FC = () => {
   return (
     <div>
       <div className="info-wrapper">
-        <div className="info-container">
-          <div className="info-header">
-            <p className="info-name">
-              <span
-                className="material-symbols-outlined"
-                style={{ fontSize: "1.4rem", marginRight: "0.5rem" }}
-              >
-                ballot
-              </span>
-              Product information
-            </p>
-          </div>
-          {data ? (
+        {data ? (
+          <div className="info-container">
+            <div className="info-header">
+              <p className="info-name">
+                <span
+                  className="material-symbols-outlined"
+                  style={{ fontSize: "1.4rem", marginRight: "0.5rem" }}
+                >
+                  ballot
+                </span>
+                Product information
+              </p>
+            </div>
+
             <div className="info-body-user">
               <div className="info-body-user-text-block">
                 <p className="info-body-header">Product Name</p>
@@ -79,15 +80,19 @@ export const Product: React.FC = () => {
                 <p>{data.discontinued ? 1 : 0}</p>
               </div>
             </div>
-          ) : (
-            <div>No such product</div>
-          )}
-          <div className="info-footer-user">
-            <button className="bt-return" onClick={() => navigate("/products")}>
-              Go back
-            </button>
+
+            <div className="info-footer-user">
+              <button
+                className="bt-return"
+                onClick={() => navigate("/products")}
+              >
+                Go back
+              </button>
+            </div>
           </div>
-        </div>
+        ) : (
+          <div>No such product</div>
+        )}
       </div>
     </div>
   );

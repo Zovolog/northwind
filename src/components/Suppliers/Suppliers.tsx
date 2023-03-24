@@ -3,7 +3,7 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import { Container, Pagination, Stack } from "@mui/material";
 import { Logs } from "../../Main";
-
+import redo from "../../redo.svg";
 export const Suppliers: React.FC = (props) => {
   const [data, getData] = useState([]);
   const [page, setPage] = useState(1);
@@ -45,7 +45,7 @@ export const Suppliers: React.FC = (props) => {
           <div className="info-container">
             <div className="info-header">
               <p className="info-name">Suppliers</p>
-              <span className="material-symbols-outlined">redo</span>
+              <img src={redo} />
             </div>
             <div className="info-body">
               <div className="desktop-table">

@@ -53,19 +53,20 @@ export const Order: React.FC = () => {
   return (
     <div>
       <div className="info-wrapper">
-        <div className="info-container">
-          <div className="info-header">
-            <p className="info-name">
-              <span
-                className="material-symbols-outlined"
-                style={{ fontSize: "1.4rem", marginRight: "0.5rem" }}
-              >
-                ballot
-              </span>
-              Order information
-            </p>
-          </div>
-          {data ? (
+        {data ? (
+          <div className="info-container">
+            <div className="info-header">
+              <p className="info-name">
+                <span
+                  className="material-symbols-outlined"
+                  style={{ fontSize: "1.4rem", marginRight: "0.5rem" }}
+                >
+                  ballot
+                </span>
+                Order information
+              </p>
+            </div>
+
             <div className="info-body">
               <div className="info-body-user">
                 <div className="info-body-user-text-block">
@@ -106,49 +107,99 @@ export const Order: React.FC = () => {
                 </div>
               </div>
               <div className="info-body">
-                <table>
-                  <thead>
-                    <tr>
-                      <th style={{ fontWeight: 700 }}>Product</th>
-                      <th style={{ fontWeight: 700 }}>Quantity</th>
-                      <th style={{ fontWeight: 700 }}>Order Price</th>
-                      <th style={{ fontWeight: 700 }}>Total Price</th>
-                      <th style={{ fontWeight: 700 }}>Discount</th>{" "}
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {productList.map((product: any, index) => (
-                      <tr
-                        key={product.productID}
-                        className={index % 2 != 0 ? "dark-elem" : "light-elem"}
-                      >
-                        <th>
-                          <Link
-                            to={`/products/${product.productID}`}
-                            className="link"
-                          >
-                            {product.productName}
-                          </Link>
-                        </th>
-                        <th>{product.quantity}</th>
-                        <th>{product.unitPrice}</th>
-                        <th>{product.totalProductPrice}</th>
-                        <th>{product.discount}%</th>
+                <div className="desktop-table">
+                  <table>
+                    <thead>
+                      <tr>
+                        <th style={{ fontWeight: 700 }}>Product</th>
+                        <th style={{ fontWeight: 700 }}>Quantity</th>
+                        <th style={{ fontWeight: 700 }}>Order Price</th>
+                        <th style={{ fontWeight: 700 }}>Total Price</th>
+                        <th style={{ fontWeight: 700 }}>Discount</th>
+                        <th></th>
                       </tr>
-                    ))}
-                  </tbody>
-                </table>
+                    </thead>
+                    <tbody>
+                      {productList.map((product: any, index) => (
+                        <tr
+                          key={product.productID}
+                          className={
+                            index % 2 != 0 ? "dark-elem" : "light-elem"
+                          }
+                        >
+                          <th>
+                            <Link
+                              to={`/products/${product.productID}`}
+                              className="link"
+                            >
+                              {product.productName}
+                            </Link>
+                          </th>
+                          <th>{product.quantity}</th>
+                          <th>{product.unitPrice}</th>
+                          <th>{product.totalProductPrice}</th>
+                          <th>{product.discount}%</th>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+                <div className="mobile-table">
+                  <table>
+                    <thead>
+                      <tr>
+                        <th style={{ fontWeight: 700 }}>Product</th>
+                        <th style={{ fontWeight: 700 }}>Quantity</th>
+                        <th style={{ fontWeight: 700 }}>Order Price</th>
+                        <th style={{ fontWeight: 700 }}>Total Price</th>
+                        <th style={{ fontWeight: 700 }}>Discount</th>
+                        <th></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {productList.map((product: any, index) => (
+                        <tr key={product.productID}>
+                          <td>
+                            <Link
+                              to={`/products/${product.productID}`}
+                              className="link"
+                            >
+                              {product.productName}
+                            </Link>
+                          </td>
+                          <td>
+                            <span className="text-weight">Quantity</span>
+                            {product.quantity}
+                          </td>
+                          <td>
+                            <span className="text-weight">Order Price</span>
+                            {product.unitPrice}
+                          </td>
+                          <td>
+                            <span className="text-weight">Total Price</span>
+                            {product.totalProductPrice}
+                          </td>
+                          <td>
+                            <span className="text-weight">Discount</span>
+                            {product.discount}%
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
               </div>
             </div>
-          ) : (
-            <div>No such product</div>
-          )}
-          <div className="info-footer-user">
-            <button className="bt-return" onClick={() => navigate("/orders")}>
-              Go back
-            </button>
+
+            <div className="info-footer-user">
+              <button className="bt-return" onClick={() => navigate("/orders")}>
+                Go back
+              </button>
+            </div>
           </div>
-        </div>
+        ) : (
+          <div>No such order</div>
+        )}
       </div>
     </div>
   );

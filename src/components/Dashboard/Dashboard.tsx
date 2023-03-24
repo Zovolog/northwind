@@ -9,8 +9,10 @@ interface AppProps {
 
 export const Dashboard: FC<AppProps> = ({ dash, resultCount }: AppProps) => {
   const [metrics, getMetrics] = useState<number[]>([]);
+  
   const [country, getCountry] = useState("");
   const [airport, getAirport] = useState("");
+  
   function countingSelects(array: any[]) {
     let selectCount = 0;
     let selectWhereCount = 0;

@@ -57,9 +57,6 @@ table {
   width: 2rem;
   border-radius: 999px;
 }
-.info-body {
-  padding: 1.5rem;
-}
 .info-body-user {
   display: flex;
   text-align: left;
