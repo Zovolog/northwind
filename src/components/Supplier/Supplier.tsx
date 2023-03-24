@@ -69,7 +69,7 @@ export const Supplier: React.FC = () => {
               </div>
               <div className="info-body-user-text-block">
                 <p className="info-body-header">Region</p>
-                {data.region ? <p>{data.region}</p> : <p> 1</p>}
+                <p>{data.region}</p>
                 <p className="info-body-header">Postal Code</p>
                 <p>{data.postalCode}</p>
                 <p className="info-body-header">Country</p>

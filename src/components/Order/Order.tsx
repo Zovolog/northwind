@@ -163,11 +163,11 @@ export const Order: React.FC = () => {
                             {product.quantity}
                           </td>
                           <td>
-                            <span className="text-weight">Order Price</span>
+                            <span className="text-weight">Order Price</span>$
                             {product.unitPrice}
                           </td>
                           <td>
-                            <span className="text-weight">Total Price</span>
+                            <span className="text-weight">Total Price</span>$
                             {product.totalProductPrice}
                           </td>
                           <td>

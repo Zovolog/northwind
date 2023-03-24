@@ -60,14 +60,14 @@ export const Product: React.FC = () => {
                 <p className="info-body-header">Product Name</p>
                 <p>{data.productName}</p>
                 <p className="info-body-header">Supplier</p>
-                <Link to={`/suppliers/${data.supplierID}`} className="link">
+                <Link to={`/suppliers/${data.supplierID}`} className="link link-search">
                   <p>{nameSupplier}</p>
                 </Link>
 
                 <p className="info-body-header">Quantity Per Unit</p>
                 <p>{data.quantityPerUnit}</p>
                 <p className="info-body-header">Unit Price</p>
-                <p>{data.unitPrice}</p>
+                <p>${data.unitPrice}</p>
               </div>
               <div className="info-body-user-text-block">
                 <p className="info-body-header">Units In Stock</p>

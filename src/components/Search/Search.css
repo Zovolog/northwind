@@ -101,6 +101,9 @@
 }
 .info {
   color: #9ca3af;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+.link-search {
   margin-top: 0.5rem;
-  margin-bottom: 1rem;
 }

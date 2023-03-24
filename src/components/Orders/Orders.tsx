@@ -77,7 +77,7 @@ export const Orders: React.FC = (props) => {
                             {order.orderID}
                           </Link>
                         </th>
-                        <th>{order.totalProductPrice}</th>
+                        <th>${order.totalProductPrice}</th>
                         <th>{order.totalProductsQuantity}</th>
                         <th>{order.totalProductsItems}</th>
                         <th>{order.shippedDate.slice(0, 10)}</th>

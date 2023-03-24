@@ -41,13 +41,13 @@ export const Navigation: React.FC = () => {
               <p>GENERAL</p>
             </li>
             <Link to={"/"}>
-              <li className="navigation-block-list-link">
+              <li className="navigation-block-list-link" tabIndex={0}>
                 <span className="material-symbols-outlined icon">home</span>
                 Home
               </li>
             </Link>
             <Link to={"/dash"}>
-              <li className="navigation-block-list-link">
+              <li className="navigation-block-list-link" tabIndex={0}>
                 <span className="material-symbols-outlined icon">
                   display_settings
                 </span>
@@ -58,7 +58,7 @@ export const Navigation: React.FC = () => {
               <p>BACKOFFICE</p>
             </li>
             <Link to={"/suppliers"}>
-              <li className="navigation-block-list-link">
+              <li className="navigation-block-list-link" tabIndex={0}>
                 <span className="material-symbols-outlined icon">
                   inventory_2
                 </span>
@@ -66,7 +66,7 @@ export const Navigation: React.FC = () => {
               </li>
             </Link>
             <Link to={"/products"}>
-              <li className="navigation-block-list-link">
+              <li className="navigation-block-list-link" tabIndex={0}>
                 <span className="material-symbols-outlined icon">
                   production_quantity_limits
                 </span>
@@ -74,7 +74,7 @@ export const Navigation: React.FC = () => {
               </li>
             </Link>
             <Link to={"/orders"}>
-              <li className="navigation-block-list-link">
+              <li className="navigation-block-list-link" tabIndex={0}>
                 <span className="material-symbols-outlined icon">
                   shopping_cart
                 </span>
@@ -82,20 +82,20 @@ export const Navigation: React.FC = () => {
               </li>
             </Link>
             <Link to={"/employees"}>
-              <li className="navigation-block-list-link">
+              <li className="navigation-block-list-link" tabIndex={0}>
                 <span className="material-symbols-outlined icon">badge</span>
                 Employees
               </li>
             </Link>
             <Link to={"/customers"}>
-              <li className="navigation-block-list-link">
+              <li className="navigation-block-list-link" tabIndex={0}>
                 <span className="material-symbols-outlined icon">group</span>
                 Customers
               </li>
             </Link>
 
             <Link to={"/search"}>
-              <li className="navigation-block-list-link">
+              <li className="navigation-block-list-link" tabIndex={0}>
                 <span className="material-symbols-outlined icon">search</span>
                 Search
               </li>
